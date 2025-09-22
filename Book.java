@@ -39,6 +39,7 @@ class Book
     {
         return title;
     }
+    
     /**
      * Exercise 2.87
      */
@@ -57,9 +58,9 @@ class Book
         borrow++;
     }
     
-    public String refNumber()
+    public void setRefNumber(String ref)
     {
-        return refNumber; 
+        String getRefNumber = refNumber ; 
     }
     
     
