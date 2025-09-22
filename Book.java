@@ -11,41 +11,64 @@ class Book
     // The fields.
     private String author;
     private String title;
+    private String detail;
+    private String refNumber;
     private int pages;
+    private int borrow;
 
     /**
      * Set the author and title fields when this object
      * is constructed.
      */
-    public Book(String bookAuthor, String bookTitle, int bookPages)
+    public Book(String bookAuthor, String bookTitle, String printDetails, String refNumber, int bookPages, int borrowed)
     {
         author = bookAuthor;
         title = bookTitle;
         pages = bookPages;
+        refNumber = "";
+        borrowed = 0;
     }
 
     
-    private String getAuthor ()
+    public String getAuthor ()
     {
         return author;
     }
     
-    private String getTitle()
+    public String getTitle()
     {
         return title;
     }
+    /**
+     * Exercise 2.87
+     */
+    public String printDetails()
+    {
+        return("Title: " + title + "Author: " + author + "Pages: " + pages);
+    }
     
-    private int getPages()
+    public int getPages()
     {
         return pages;
     }
     
-    private void printAuthor()
+    public void borrow()
+    {
+        borrow++;
+    }
+    
+    public String refNumber()
+    {
+        return refNumber; 
+    }
+    
+    
+    public void printAuthor()
     {
         System.out.println(author);
     }
     
-    private void printTitle()
+    public void printTitle()
     {
         System.out.println(title);
     }
