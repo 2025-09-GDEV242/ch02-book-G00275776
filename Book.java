@@ -9,24 +9,26 @@
 class Book
 {
     // The fields.
-    private String author;
+    private String author;  
     private String title;
     private String detail;
     private String refNumber;
     private int pages;
     private int borrowed;
+    private final boolean courseText;
 
     /**
      * Set the author and title fields when this object
      * is constructed.
      */
-    public Book(String bookAuthor, String bookTitle, int bookPages)
+    public Book(String bookAuthor, String bookTitle, int bookPages, boolean isCourseText)
     {
         author = bookAuthor;
         title = bookTitle;
         pages = bookPages;
         refNumber = "";
         borrowed = 0;
+        courseText = isCourseText;
     }
 
     
@@ -40,24 +42,36 @@ class Book
         return title;
     }
     
+    public int getBorrowed()
+    {
+        return borrowed;
+    }
+    
+    public boolean isCourseText()
+    {
+          return courseText;  
+    }
+
     /**
-     * Exercise 2.87
+     * Exercise 2.87, 2.89, 2.90
      */
     public void printDetails()
     {
         String tempref = "ZZZ";
-        if (refNumber.length()>0)
+        if (refNumber.length()>=3)
         {
             tempref = refNumber;
         }
         
-        System.out.println("Title: " + title + "Author: " + author + "Pages: " + pages + "Reference Number: " + tempref);
+        
+        System.out.println("Title: " + title + ", Author: " + author + ", Pages: " + pages + ", Reference Number: " + tempref + ", Times borrowed: " + borrowed + ", Course Text? " + courseText);
     }
     
     public int getPages()
     {
         return pages;
     }
+
     
     public void borrow()
     {
@@ -67,6 +81,14 @@ class Book
     public void setRefNumber(String ref)
     {
          refNumber = ref; 
+         if(ref.length()>3)
+         {
+             refNumber = ref;
+         }
+         else
+         {
+             System.out.println("Error: Must be longer than 3 characters");
+         }
         
     }
     
